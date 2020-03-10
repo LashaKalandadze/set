@@ -9,6 +9,7 @@ export enum Shape {
     Square = 1,
     Oval = 2,
     Wave = 3,
+    W
 }
 
 export enum Fill {
