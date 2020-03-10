@@ -1,65 +1,57 @@
-.container{
-    width: 5.5rem;
-    height: 140px;
-    background: #eee;
-    border-radius: 0.4rem;
-    box-shadow: 1px 1px 5px -1.5px black; 
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+.container {
+  width: 5.5rem;
+  height: 140px;
+  background-color: #eee;
+  border-radius: 0.4rem;
+  box-shadow: 1px 1px 5px -1.5px black;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  user-select: none;
+  cursor: pointer;
+  transition: width 2s;
+  &.selected {
+    box-shadow: 3px 3px 12px -3px black;
+    transition: box-shadow 200ms linear; 
+    background-color: #42cece;
+    transition: background-color 200ms linear; 
+  }
 }
 
 .container div {
-    width: 100%;
+  width: 100%;
 }
 
 .container img {
-    width: 3.5rem;
-    height: auto;
-    align-self: center;
+  width: 3.5rem;
+  height: auto;
+  align-self: center;
 }
 
 .fill-1 {
-    // filter: brightness(3.9) invert(.35) sepia(1) hue-rotate(315deg) saturate(261%);
-    filter: invert(28%) sepia(50%) hue-rotate(316deg) saturate(921%)
-
+  // filter: brightness(3.9) invert(.35) sepia(1) hue-rotate(315deg) saturate(261%);
+  filter: invert(28%) sepia(50%) hue-rotate(316deg) saturate(921%);
 }
 
 .fill-2 {
-    // filter: brightness(3.9) invert(.3) sepia(1) hue-rotate(88deg) saturate(261%);
-    filter: invert(28%) sepia(50%) hue-rotate(100deg) saturate(921%)
+  // filter: brightness(3.9) invert(.3) sepia(1) hue-rotate(88deg) saturate(261%);
+  filter: invert(28%) sepia(50%) hue-rotate(100deg) saturate(921%);
 }
 
 .fill-3 {
-    // filter: brightness(3.9) invert(.3) sepia(1) hue-rotate(243deg) saturate(261%);
-    filter: invert(28%) sepia(50%) hue-rotate(248deg) saturate(921%)
+  // filter: brightness(3.9) invert(.3) sepia(1) hue-rotate(243deg) saturate(261%);
+  filter: invert(28%) sepia(50%) hue-rotate(248deg) saturate(921%);
 }
-
-
 
 .red {
-    filter:
-    invert(15%)
-    sepia(150%)
-    saturate(10000%)
-    hue-rotate(30deg);
+  filter: invert(15%) sepia(150%) saturate(10000%) hue-rotate(30deg);
 }
 
-.green{
-    filter:
-    invert(15%)
-    sepia(150%)
-    saturate(10000%)
-    hue-rotate(100deg);
+.green {
+  filter: invert(15%) sepia(150%) saturate(10000%) hue-rotate(100deg);
 }
- 
+
 .purple {
-    filter:
-    invert(15%)
-    sepia(150%)
-    saturate(10000%)
-    hue-rotate(280deg);
+  filter: invert(15%) sepia(150%) saturate(10000%) hue-rotate(280deg);
 }
-
-.selected{display: none;}
