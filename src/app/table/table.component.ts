@@ -10,12 +10,29 @@ import { Card } from '../interfaces/card';
 
 export class TableComponent implements OnInit {
   cards: Card[];
+  selectedCards: Card[] = new Array<Card>();
 
-  constructor(private data: DealerService) { 
+  constructor(private data: DealerService) {
   }
 
   ngOnInit(): void {
     this.data.openCards();
     this.cards = this.data.openedCards;
+  }
+
+  public cardClicked(card: Card): boolean {
+    var c = this.selectedCards.find(x => x == card);
+
+    if(c != undefined){
+      this.selectedCards.splice(this.selectedCards.indexOf(c));
+      return false;
+    }
+    else if(this.selectedCards.length < 3){
+      this.selectedCards.push(card)
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }

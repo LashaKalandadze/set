@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from '../interfaces/card';
 
 @Component({
@@ -8,10 +8,16 @@ import { Card } from '../interfaces/card';
 })
 export class CardComponent implements OnInit {
   @Input() entity: Card;
+  @Input() clickEvent : (card: Card) => boolean;
+  
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+
+  public onClicked(): void {
+    console.log(this.clickEvent(this.entity));
   }
 }
 
