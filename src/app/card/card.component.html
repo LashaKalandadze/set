@@ -1,3 +1,4 @@
 <div class="container" *ngIf='entity != undefined'  (click)="onClicked()" >
     <img *ngFor='let i of [].constructor(entity.quantity)' ngClass='fill-{{entity.color}}' src='./assets/images/cards/{{entity.shape}}-0-{{entity.fill}}.png' >
 </div>
+
