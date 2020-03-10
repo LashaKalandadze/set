@@ -4,7 +4,7 @@
     
     <div class='cards-container' [ngClass]="{'large': cards.length> 12}" >
         <div *ngFor="let c of cards">
-            <app-card [entity]="c"></app-card>
+            <app-card [entity]="c" (clickEvent)="cardClicked($event)"></app-card>
         </div>
     </div>
 </div>
