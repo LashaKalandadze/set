@@ -9,6 +9,7 @@ import { Card } from '../interfaces/card';
 export class CardComponent implements OnInit {
   @Input() entity: Card;
   @Input() clickEvent : (card: Card) => boolean;
+  selected: boolean;
   
   constructor() { }
 
@@ -17,7 +18,7 @@ export class CardComponent implements OnInit {
   }
 
   public onClicked(): void {
-    console.log(this.clickEvent(this.entity));
+    this.selected = this.clickEvent(this.entity);
   }
 }
 

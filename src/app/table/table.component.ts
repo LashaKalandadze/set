@@ -11,7 +11,7 @@ import { Card } from '../interfaces/card';
 export class TableComponent implements OnInit {
   cards: Card[];
   selectedCards: Card[] = new Array<Card>();
-
+  
   constructor(private data: DealerService) {
   }
 
@@ -23,12 +23,12 @@ export class TableComponent implements OnInit {
   public cardClicked(card: Card): boolean {
     var c = this.selectedCards.find(x => x == card);
 
-    if(c != undefined){
-      this.selectedCards.splice(this.selectedCards.indexOf(c));
+    if(c){
+      this.selectedCards.splice(this.selectedCards.indexOf(c), 1);
       return false;
     }
     else if(this.selectedCards.length < 3){
-      this.selectedCards.push(card)
+      this.selectedCards.push(card);
       return true;
     }
     else{

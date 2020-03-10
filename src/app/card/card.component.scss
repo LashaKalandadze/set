@@ -8,16 +8,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    user-select: none;
+    cursor: pointer;
 }
 
 .container div {
     width: 100%;
+    &.selected{
+       display: none; 
+    }
 }
 
 .container img {
     width: 3.5rem;
     height: auto;
     align-self: center;
+    
 }
 
 .fill-1 {
