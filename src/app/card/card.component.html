@@ -1,0 +1,7 @@
+<div class="container">
+    <ul class="inner-container" *ngIf="entity != undefined">
+        <li class="img-container" *ngFor='let i of [].constructor(entity.quantity)'>
+            <img class="img" [ngClass]="{'red': entity.color == 1, 'green': entity.color == 2, 'purple': entity.color == 3}" src="../../assets/images/cards/{{entity.shape}}{{entity.fill}}.png" alt="">
+        </li>
+    </ul>
+</div>

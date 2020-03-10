@@ -1,0 +1,56 @@
+.container{
+    width: 5.5rem;
+    height: 9rem;
+}
+
+.inner-container{
+    background: #eee;
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 5px -1.5px black; 
+    margin: 10px;
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: space-evenly;
+    justify-content: space-evenly;
+}
+
+.img-container{
+    height: 33.3%;
+    align-self: center;
+    display: flex;
+}
+
+.img {
+    width: calc(100% - 15px);
+    margin: auto;
+}
+
+.red {
+    filter:
+    invert(15%)
+    sepia(150%)
+    saturate(10000%)
+    hue-rotate(30deg);
+}
+
+.green{
+    filter:
+    invert(15%)
+    sepia(150%)
+    saturate(10000%)
+    hue-rotate(100deg);
+}
+ 
+.purple {
+    filter:
+    invert(15%)
+    sepia(150%)
+    saturate(10000%)
+    hue-rotate(280deg);
+}
