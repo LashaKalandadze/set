@@ -9,18 +9,18 @@
 }
 
 .cards-container {
-    // background-color: antiquewhite;
-    width: 520px;
+    width: 620px;
     height: 520px;
-    /* display: -webkit-box; */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
+    flex-grow: -1;
+    align-content: start;
 }
 
-.cards-container.large {
-    width: 620px;
-}
+// .cards-container.large {
+//     width: 620px;
+// }
 
 .cards-container div {
     padding: 5px;
