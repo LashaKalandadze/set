@@ -20,19 +20,18 @@ export class TableComponent implements OnInit {
     this.cards = this.data.openedCards;
   }
 
-  public cardClicked(card: Card): boolean {
-    var c = this.selectedCards.find(x => x == card);
+  public cardClicked(data: { card: Card, callBack: (selected: boolean) => void }) {
+    let selected = false;
+    let c = this.selectedCards.find(x => x == data.card);
 
-    if(c){
-      this.selectedCards.splice(this.selectedCards.indexOf(c), 1);
-      return false;
+    if (c != undefined) {
+      this.selectedCards.splice(this.selectedCards.indexOf(c));
     }
-    else if(this.selectedCards.length < 3){
-      this.selectedCards.push(card);
-      return true;
+    else if (this.selectedCards.length < 3) {
+      this.selectedCards.push(data.card)
+      selected = true;
     }
-    else{
-      return false;
-    }
+    
+    data.callBack(selected);
   }
 }

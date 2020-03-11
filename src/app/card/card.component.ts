@@ -8,9 +8,9 @@ import { Card } from '../interfaces/card';
 })
 export class CardComponent implements OnInit {
   @Input() entity: Card;
-  @Input() clickEvent : (card: Card) => boolean;
-  selected: boolean;
-  
+  @Output() clickEvent: EventEmitter<{ card: Card, callBack: (selected:boolean) => void }> = new EventEmitter();
+  selected:boolean;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +18,12 @@ export class CardComponent implements OnInit {
   }
 
   public onClicked(): void {
-    this.selected = this.clickEvent(this.entity);
+    this.clickEvent.emit({card:this.entity, callBack: (selected:boolean) => {this.setSelected(selected)}});
+  }
+
+  private setSelected(selected:boolean){
+    console.log(this);
+    this.selected = selected;
   }
 }
 
