@@ -71,20 +71,26 @@ export class DealerService {
   }
 
   checkCards(cards: Card[]) {
-    if(this.isSet(cards)){
+    if(this.isSetCards(cards)){
       
     }
   }
 
-  isSet(cards: Card[]):boolean {
+  isSetCards(cards: Card[]):boolean {
     if(cards.length != 3){
       return false;
     }
 
-    for(let c in cards){
-
-    }
+    // var arr:number[][] = [[],[],[],[]];
+    // cards.forEach(card => {
+    //   arr[0].push
+    // });
+    
 
     return false;
   }
+
+  // isSetArray(arr:number[]):boolean {
+
+  // }
 }
