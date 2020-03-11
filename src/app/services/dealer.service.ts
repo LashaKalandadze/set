@@ -69,4 +69,22 @@ export class DealerService {
   private popRandomCard(){
     return this.deck.splice(Math.floor(Math.random() * this.deck.length), 1)[0];
   }
+
+  checkCards(cards: Card[]) {
+    if(this.isSet(cards)){
+      
+    }
+  }
+
+  isSet(cards: Card[]):boolean {
+    if(cards.length != 3){
+      return false;
+    }
+
+    for(let c in cards){
+
+    }
+
+    return false;
+  }
 }

@@ -8,16 +8,21 @@ import { Card } from '../interfaces/card';
   styleUrls: ['./table.component.scss']
 })
 
+
 export class TableComponent implements OnInit {
   cards: Card[];
   selectedCards: Card[] = new Array<Card>();
-  
-  constructor(private data: DealerService) {
+
+  constructor(private service: DealerService) {
   }
 
   ngOnInit(): void {
-    this.data.openCards();
-    this.cards = this.data.openedCards;
+    this.service.openCards();
+    this.cards = this.service.openedCards;
+  }
+
+  hasExtraCards(): boolean {
+    return this.cards.indexOf(undefined) < 0;
   }
 
   public cardClicked(data: { card: Card, callBack: (selected: boolean) => void }) {
@@ -25,13 +30,16 @@ export class TableComponent implements OnInit {
     let c = this.selectedCards.find(x => x == data.card);
 
     if (c != undefined) {
-      this.selectedCards.splice(this.selectedCards.indexOf(c));
+      this.selectedCards.splice(this.selectedCards.indexOf(c), 1);
     }
     else if (this.selectedCards.length < 3) {
       this.selectedCards.push(data.card)
       selected = true;
     }
-    
+    else{
+      this.service.checkCards(this.selectedCards);
+    }
+
     data.callBack(selected);
   }
 }
