@@ -11,14 +11,15 @@
   user-select: none;
   transition: width 2s;
   cursor: pointer;
+  transition: box-shadow 200ms linear; 
   &.selected {
-    box-shadow: 3px 3px 12px -3px black;
+    box-shadow: 3px 3px 8px -3px black;
     transition: box-shadow 200ms linear; 
     background-color: #42cece;
     transition: background-color 200ms linear; 
   }
   &:hover{
-    box-shadow: 3px 3px 12px -3px black;
+    box-shadow:  3px 3px 8px -3px black;
     transition: box-shadow 200ms linear; 
   }
 }

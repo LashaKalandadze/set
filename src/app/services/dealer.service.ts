@@ -20,7 +20,7 @@ export class DealerService {
 
   private generateDeck() {
     for (let s = 1; s <= 3; s++) {
-      for (let c = 1; c <=3; c++) {
+      for (let c = 1; c <= 3; c++) {
         for (let f = 1; f <= 3; f++) {
           for (let q = 1; q <= 3; q++) {
             this.deck.push({ shape: s, color: c, fill: f, quantity: q });
@@ -66,31 +66,54 @@ export class DealerService {
     return newCards;
   }
 
-  private popRandomCard(){
+  private popRandomCard() {
     return this.deck.splice(Math.floor(Math.random() * this.deck.length), 1)[0];
   }
 
-  checkCards(cards: Card[]) {
-    if(this.isSetCards(cards)){
-      
+  checkCards(cards: Card[]):boolean {
+    var isSet = this.isSetCards(cards);
+    if (isSet) {
+      setTimeout(() => {
+        this.clearSet(cards);
+      }, 1000);
     }
+
+    return isSet;
   }
 
-  isSetCards(cards: Card[]):boolean {
-    if(cards.length != 3){
+  clearSet(cards: Card[]) {
+    cards.forEach(card => {
+      this.openedCards[this.openedCards.indexOf(card)] = undefined;
+    })
+
+    setTimeout(() => {
+      this.openCards();
+    }, 1000);
+  }
+
+  isSetCards(cards: Card[]): boolean {
+    if (cards.length != 3) {
       return false;
     }
 
-    // var arr:number[][] = [[],[],[],[]];
-    // cards.forEach(card => {
-    //   arr[0].push
-    // });
-    
+    var arr: number[][] = [[], [], [], []];
+    cards.forEach(card => {
+      arr[0].push(card.color);
+      arr[1].push(card.fill);
+      arr[2].push(card.quantity);
+      arr[3].push(card.shape);
+    });
 
-    return false;
+    var isSet = true;
+    arr.forEach(x => {
+      isSet = isSet && this.isSetArray(x);
+    });
+
+    return isSet;
   }
 
-  // isSetArray(arr:number[]):boolean {
-
-  // }
+  isSetArray(arr: number[]): boolean {
+    var uniqueCount = arr.filter((x, i) => arr.indexOf(x) === i).length;
+    return uniqueCount == 1 || uniqueCount == 3;
+  }
 }
