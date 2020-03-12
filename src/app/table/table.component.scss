@@ -8,6 +8,16 @@
     margin: auto;
 }
 
+
+.deck-container {
+    width: 5.5rem;
+    height: 140px;
+    background: #094354;
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 5px -1.5px black;
+    margin-right: 100px;
+}
+
 .cards-container {
     width: 620px;
     height: 520px;
@@ -18,19 +28,16 @@
     align-content: start;
 }
 
-// .cards-container.large {
-//     width: 620px;
-// }
-
 .cards-container div {
     padding: 5px;
+    // animation: moveCard 4s ease-out;
 }
 
-.deck-container {
-    width: 5.5rem;
-    height: 140px;
-    background: #094354;
-    border-radius: 0.4rem;
-    box-shadow: 1px 1px 5px -1.5px black;
-    margin-right: 100px;
+@keyframes moveCard {
+    0% {
+       transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(20px, 100px, 0);
+    }
 }
