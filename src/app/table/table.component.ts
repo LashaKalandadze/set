@@ -36,10 +36,13 @@ export class TableComponent implements OnInit {
       this.selectedCards.push(data.card)
       selected = true;
     }
-    else{
-      this.service.checkCards(this.selectedCards);
-    }
 
     data.callBack(selected);
+
+    if (this.selectedCards.length == 3) {
+      if(this.service.checkCards(this.selectedCards)){
+        this.selectedCards = [];
+      }
+    }
   }
 }
