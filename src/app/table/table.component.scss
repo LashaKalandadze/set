@@ -10,12 +10,22 @@
 
 
 .deck-container {
-    width: 5.5rem;
-    height: 140px;
+    width: 6rem;
+    height: 155px;
+    margin-right: 100px;
+}
+
+.deck-container .card-back {
+    width: 6rem;
+    height: 155px;
     background: #094354;
     border-radius: 0.4rem;
     box-shadow: 1px 1px 5px -1.5px black;
-    margin-right: 100px;
+    margin-left: 6px;
+}
+
+.deck-container div {
+    position: absolute;
 }
 
 .cards-container {
@@ -28,9 +38,12 @@
     align-content: start;
 }
 
-.cards-container div {
+.card-holder {
     padding: 5px;
-    // animation: moveCard 4s ease-out;
+    width: 110px;
+    height: 160px;
+    background-color: green;
+    margin: 1px;
 }
 
 @keyframes moveCard {

@@ -22,7 +22,6 @@ export class CardComponent implements OnInit {
   }
 
   private setSelected(selected:boolean){
-    console.log(this);
     this.selected = selected;
   }
 }
