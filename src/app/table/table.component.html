@@ -1,16 +1,18 @@
 <div class='table-content'>
     <div class='deck-container'>
         <div *ngFor="let c of cards">
-            <app-card [entity]="c"></app-card>
         </div>
         <div class='card-back'> </div>
-
     </div>
   
-    
     <div class='cards-container' [ngClass]="{'large': hasExtraCards() }" >
         <div class='card-holder' *ngFor="let c of cards">
-            <!-- <app-card [entity]="c" (clickEvent)="cardClicked($event)"></app-card> -->
+            <app-card [entity]="c" (clickEvent)="cardClicked($event)"></app-card>
         </div>
+    </div>
+
+    <div class='info-container' >
+        <img src='./assets/images/info/2.png' > 
+        <div class='set-count-container'  [ngClass]="{'animate':  animateSetCountLabel}" > {{foundSetCount}}</div>   
     </div>
 </div>

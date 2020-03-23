@@ -12,13 +12,17 @@ import { Card } from '../interfaces/card';
 export class TableComponent implements OnInit {
   cards: Card[];
   selectedCards: Card[] = new Array<Card>();
+  foundSetCount: number;
+  animateSetCountLabel: boolean;
 
   constructor(private service: DealerService) {
+
   }
 
   ngOnInit(): void {
     this.service.openCards();
     this.cards = this.service.openedCards;
+    this.foundSetCount = 0;
   }
 
   hasExtraCards(): boolean {
@@ -26,6 +30,8 @@ export class TableComponent implements OnInit {
   }
 
   public cardClicked(data: { card: Card, callBack: (selected: boolean) => void }) {
+    this.animateSetCountLabel = false;
+
     let selected = false;
     let c = this.selectedCards.find(x => x == data.card);
 
@@ -41,6 +47,8 @@ export class TableComponent implements OnInit {
 
     if (this.selectedCards.length == 3) {
       if(this.service.checkCards(this.selectedCards)){
+        this.foundSetCount += 1;
+        this.animateSetCountLabel = true;
         this.selectedCards = [];
       }
     }
